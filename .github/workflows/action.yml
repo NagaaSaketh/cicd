@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Print dynamic message
-        run:
+        run: |
           echo "Hello ${{ github.actor }}"
           echo "You pushed to ${{ github.ref_name }}"
           echo "from repository ${{ github.event.repository.name }}"
