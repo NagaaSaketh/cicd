@@ -1,15 +1,23 @@
-name: hello
+name: Deployment Receipt
 
 on: push
 
 jobs:
-  greet:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print dynamic message
+      - name: Print deployment receipt
         run: |
-          echo "Hello ${{ github.actor }}"
-          echo "You pushed to ${{ github.ref_name }}"
-          echo "from repository ${{ github.event.repository.name }}"
-          echo "at $(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M IST')"
+          echo "================================="
+          echo "        DEPLOYMENT RECEIPT"
+          echo "================================="
+          echo ""
+          echo "Repository : ${{ github.event.repository.name }}"
+          echo "Branch     : ${{ github.ref_name }}"
+          echo "Triggered By : ${{ github.actor }}"
+          echo "Event Type : ${{ github.event_name }}"
+          echo ""
+          echo "Timestamp : $(date)"
+          echo ""
+          echo "================================="
